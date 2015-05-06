@@ -1,40 +1,54 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
 
-	<title>{{title}}</title>
+  {{#if fabricator}}<link rel="stylesheet" href="{{baseurl}}/assets/fabricator/styles/f.css">{{/if}}
 
-	{{#if fabricator}}<link rel="stylesheet" href="{{baseurl}}/assets/fabricator/styles/f.css">{{/if}}
+  <!-- toolkit styles -->
+  <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
+  <!-- /toolkit styles -->
 
-	<!-- toolkit styles -->
-	<link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
-	<!-- /toolkit styles -->
+  {{#each styles}}
+    <!-- view-specific styles -->
+    <link rel="stylesheet" href="{{this}}">
+  {{/each}}
+
+  {{#each scripts-head}}
+    <!-- view-specific scripts -->
+    <script src={{.}}></script>
+  {{/each}}
 
 </head>
 <body>
 
-	{{#if fabricator}}
-		{{> f-icons}}
-		{{> f-menu}}
-		<div class="f-container">
-			{{> f-control-bar}}
-	{{/if}}
+  {{#if fabricator}}
+    {{> f-icons}}
+    {{> f-menu}}
+    <div class="f-container">
+      {{> f-control-bar}}
+  {{/if}}
 
 
-	{% body %}
+  {% body %}
 
 
-	{{#if fabricator}}
-		</div>
-	<script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
-	{{/if}}
+  {{#if fabricator}}
+    </div>
+  <script src="{{baseurl}}/assets/fabricator/scripts/f.js"></script>
+  {{/if}}
 
-	<!-- toolkit scripts -->
-	<script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
-	<!-- /toolkit scripts -->
+  <!-- toolkit scripts -->
+  <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
+  <!-- /toolkit scripts -->
+
+  {{#each scripts-footer}}
+    <!-- view-specific scripts -->
+    <script src="{{this}}"></script>
+  {{/each}}
 
 </body>
 </html>

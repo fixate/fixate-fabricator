@@ -22,14 +22,14 @@ myatt: true
 <h2>Color</h2>
 
 {{#each toolkit.colors}}
-	<div class="f-color-chips">
-	{{#each this}}
-		<div class="f-color-chip">
-			<div class="f-color-chip__name">{{@key}}</div>
-			<div class="f-color-chip__color">{{this}}</div>
-		</div>
-	{{/each}}
-	</div>
+  <div class="f-color-chips">
+  {{#each this}}
+    <div class="f-color-chip">
+      <div class="f-color-chip__name">{{@key}}</div>
+      <div class="f-color-chip__color">{{this}}</div>
+    </div>
+  {{/each}}
+  </div>
 {{/each}}
 
 <h2>Typography</h2>
