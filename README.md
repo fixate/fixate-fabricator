@@ -1,4 +1,22 @@
-# fabricator
+# Fixate's Fabricator Boilerplate
+
+A boilerplate for kickstarting your styleguide / UI toolkit. The magic behind it
+all is [Fabricator](http://fbrctr.github.io).
+
+## Quick Start
+
+```shell
+$ curl -L https://github.com/fixate/fixate-fabricator/archive/master.tar.gz | tar zx --strip 1
+$ npm start
+```
+
+## Documentation
+
+#### [Read the docs →](http://fbrctr.github.io/docs)
+
+## Demo
+
+#### [Default Fabricator Instance →](http://fbrctr.github.io/demo)
 
 The fabricator UI toolkit is a highly-modular design system for rapid web page development. It contains different materials that can be assembled into more complex page layouts.
 
@@ -11,14 +29,6 @@ fabricator requires [node.js](http://nodejs.org). Make sure your have `v0.10` or
 ```
 $ npm start
 ```
-
-### Development Environment Features
-
-- Live preview sever (using [BrowserSync](http://www.browsersync.io/))
-- CSS Autoprefixing
-- Sass compilation
-- Browserify bundling
-- Image optimization
 
 ## Build
 
