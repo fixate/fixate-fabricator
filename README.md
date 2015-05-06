@@ -1,7 +1,7 @@
 # Fixate's Fabricator Boilerplate
 
 A boilerplate for kickstarting your styleguide / UI toolkit. The magic behind it
-all is [Fabricator](http://fbrctr.github.io).
+all is thanks to [Fabricator](http://fbrctr.github.io).
 
 ## Quick Start
 
@@ -22,7 +22,7 @@ The fabricator UI toolkit is a highly-modular design system for rapid web page d
 
 ## Getting Started
 
-fabricator requires [node.js](http://nodejs.org). Make sure your have `v0.10` or higher installed before proceeding.
+Fabricator requires [node.js](http://nodejs.org). Make sure your have `v0.10` or higher installed before proceeding.
 
 **Start the local development environment:**
 
