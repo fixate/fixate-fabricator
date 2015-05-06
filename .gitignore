@@ -1,2 +1,5 @@
 #ignore built files
 dist/
+
+# ignore node modules
+node_modules/
