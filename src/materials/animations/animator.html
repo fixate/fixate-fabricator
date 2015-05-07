@@ -1,0 +1,71 @@
+<div>
+	<h3 anim-element="animElement" ng-class="animClass">animate me</h3>
+
+  <p>
+		<select id="" name="" ng-model="animClass">
+      {{#each animations.modifiers}}
+        <option value="{{this}}">.{{this}}</option>
+      {{/each}}
+		</select>
+    <button class="btn ng-cloak" ng-click="animElement.replay()">replay</button>
+  </p>
+</div>
+
+
+{{#if angular}}
+<br>
+
+<h3>ngShow Animations</h3>
+<div class="gw" ng-init="ngShow.elem = true">
+	<div class="g one-half">
+		<p class="alert_-info" ng-class="ngShow.animClass" ng-show="ngShow.elem && !ngShow.useInline">
+			Consectetur laudantium iusto in voluptatem quae dolores. A omnis soluta iste
+			quasi quia perspiciatis veritatis, quisquam, ipsa voluptatibus eum dolorem
+			voluptatibus assumenda? Et explicabo laudantium soluta voluptatibus
+			laudantium, sequi odio?
+		</p>
+		<span ng-class="ngShow.animClass" ng-show="ngShow.elem && ngShow.useInline">inline</span>
+	</div>
+
+	<div class="g one-half">
+		<select id="" name="" ng-model="ngShow.animClass">
+      {{#each animations.ng-modifiers}}
+        <option value="{{this}}">.{{this}}</option>
+      {{/each}}
+		</select>
+		<button class="btn ng-cloak" ng-click="ngShow.elem = !ngShow.elem">{[{ ngShow.elem ? 'hide' : 'show' }]}</button>
+		<p>
+			<input id="ngShow.displayLevel" type="checkbox" name="ngShow.displayLevel" ng-model="ngShow.useInline" value=true>
+			<label for="ngShow.displayLevel">use inline</label>
+		</p>
+	</div>
+</div>
+
+<hr>
+
+<h3>ngIf Animations</h3>
+<div class="gw" ng-init="ngIf.elem = true">
+	<div class="g one-half">
+		<p class="alert_-info" ng-class="ngIf.animClass" ng-if="ngIf.elem && !ngIf.useInline">
+			Consectetur laudantium iusto in voluptatem quae dolores. A omnis soluta iste
+			quasi quia perspiciatis veritatis, quisquam, ipsa voluptatibus eum dolorem
+			voluptatibus assumenda? Et explicabo laudantium soluta voluptatibus
+			laudantium, sequi odio?
+		</p>
+		<span ng-class="ngIf.animClass" ng-if="ngIf.elem && ngIf.useInline">inline element</span>
+	</div>
+
+	<div class="g one-half">
+		<select id="" name="" ng-model="ngIf.animClass">
+      {{#each animations.ng-modifiers}}
+        <option value="{{this}}">.{{this}}</option>
+      {{/each}}
+		</select>
+		<button class="btn ng-cloak" ng-click="ngIf.elem = !ngIf.elem">{[{ ngIf.elem ? 'hide' : 'show' }]}</button>
+		<p>
+			<input id="ngIf.displayLevel" type="checkbox" name="ngIf.displayLevel" ng-model="ngIf.useInline" value=true>
+			<label for="ngIf.displayLevel">use inline</label>
+		</p>
+	</div>
+</div>
+{{/if}}
