@@ -3,3 +3,5 @@
  */
 
 'use strict';
+
+require('./layout');
