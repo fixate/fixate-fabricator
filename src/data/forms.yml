@@ -1,0 +1,4 @@
+inputs:
+  ng-validations:
+    - ng-valid
+    - ng-invalid
