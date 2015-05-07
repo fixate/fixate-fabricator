@@ -1,0 +1,20 @@
+headers:
+  lvl:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+lists:
+  - ul
+  - ol
+paragraphs:
+  - style: normal
+    weight: normal
+  - style: italic
+    weight: normal
+  - style: normal
+    weight: bold
+  - style: italic
+    weight: bold

@@ -1,0 +1,7 @@
+modifiers:
+  btn_-primary:
+    - is-active
+    - is-selected
+  btn_-full:
+    - is-active
+    - is-selected
