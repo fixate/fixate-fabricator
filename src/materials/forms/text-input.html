@@ -1,2 +1,31 @@
-<label for="textInput">Text input</label>
-<input type="text" id="textInput" />
+<form action="./" name="modifiersForm">
+	<div class="field">
+    <label for="">label</label>
+	  <input type="text" value="value text">
+	</div>
+  <div class="field">
+    <label for="">label</label>
+	  <input type="text" value="" placeholder="placeholder text">
+	</div>
+  <div class="field">
+    <label for="">label</label>
+	  <input type="text" value="" placeholder="placeholder text">
+    <span>with suffix</span>
+	</div>
+</form>
+
+{{#if angular}}
+<h3>Angular Validations</h3>
+
+<form class="kss-form-container" action="./" name="validationForm">
+	<div class="field">
+		<input type="text" name="firstName" ng-model="formInput.firstName">
+    <span ng-bind-template="{[{ validationForm.firstName.$valid ? 'valid' : 'invalid' }]}"></span>
+	</div>
+
+	<div class="field">
+		<input type="email" name="email" ng-init="formInput.email='invalid email'" value="invalid email" ng-model="formInput.email">
+		<span ng-bind-template="{[{ validationForm.email.$valid ? 'valid' : 'invalid' }]}"></span>
+	</div>
+</form>
+{{/if}}
