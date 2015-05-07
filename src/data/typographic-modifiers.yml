@@ -1,0 +1,21 @@
+colors:
+  base:
+    - dk
+    - lt
+    - ltr
+families:
+  - base
+  - alt
+sizes:
+  - giga
+  - mega
+  - kilo
+  - alpha
+  - beta
+  - gamma
+  - delta
+  - epsilon
+  - zeta
+  - milli
+  - micro
+  - nano
