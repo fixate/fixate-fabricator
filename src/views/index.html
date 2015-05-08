@@ -17,15 +17,23 @@ fabricator: true
 
 <pre class="language-markup"><code class="language-markup">&lt;script src=&quot;assets/toolkit/scripts/toolkit.js&quot;&gt;&lt;/script&gt;</code></pre>
 
-<h2>Color</h2>
+<h2>Colors</h2>
 
 {{#each toolkit.colors}}
-  <div class="f-color-chips">
-  {{#each this}}
-    <div class="f-color-chip">
-      <div class="f-color-chip__name">{{@key}}</div>
-      <div class="f-color-chip__color">{{this}}</div>
-    </div>
-  {{/each}}
+  <h3>{{@key}}</h3>
+
+  <div class="f-color-container">
+    {{#each this}}
+      <div class="f-color">
+        <div class="f-color__block bgc_-{{@key}}{{this}}" >
+          <div class="f-color__block__inner"></div>
+        </div>
+        <div class="f-color__text">
+          {{@key}}{{this}}
+        </div>
+      </div>
+    {{/each}}
   </div>
+
+  <br>
 {{/each}}
