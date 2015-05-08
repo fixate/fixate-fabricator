@@ -1,32 +1,34 @@
-// rewrite this whole thing without jquery
+;(function() {
+  var Trigger = (function() {
+    var Trigger = function(triggerEl) {
+      this.trigger = triggerEl;
+      this.target = document.querySelector(this.trigger.getAttribute('data-target'));
+      this.targetClass = this.trigger.getAttribute('data-target-class');
+      this.timeout = this.trigger.getAttribute('data-trigger') || 2000;
+      this._init();
+    }
 
-// var $html, $trigger, $triggerClass, listen, resetElem;
+    Trigger.prototype._init = function() {
+      document.addEventListener('click', this._handleClick.bind(this));
+    }
 
-// listen = function(el, event, handler) {
-//   if (el.addEventListener) {
-//     return el.addEventListener(event, handler);
-//   } else {
-//     return el.attachEvent('on' + event, function() {
-//       return handler.call(el);
-//     });
-//   }
-// };
+    Trigger.prototype._handleClick = function(e) {
+      if (e.target === this.trigger) {
+        this._addClass();
+        setTimeout(this._removeClass.bind(this), this.timeout);
+      }
+    }
 
-// html = document.documentElement;
+    Trigger.prototype._addClass = function() {
+      this.target.classList.add(this.targetClass);
+    }
 
-// $trigger = $('.js-add-class');
+    Trigger.prototype._removeClass = function() {
+      this.target.classList.remove(this.targetClass);
+    }
 
-// $triggerClass = $trigger.data('class');
+    return Trigger;
+  })();
 
-// $trigger.on('click', function(e) {
-//   $html.addClass($triggerClass);
-//   setTimeout(function() {
-//     return resetElem($html, $triggerClass);
-//   }, 2000);
-// });
-
-// resetElem = function($elem, className) {
-//   if ($elem.hasClass(className)) {
-//     $elem.removeClass(className);
-//   }
-// };
+  new Trigger(document.querySelector('[data-trigger]'));
+})();
