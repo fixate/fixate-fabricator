@@ -1,5 +1,4 @@
 angular.module('f')
-
   .directive('animElement', function() {
     return {
       restrict: 'AE',
