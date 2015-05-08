@@ -1,0 +1,36 @@
+.f-color-container {
+  display: flex;
+
+  @media (max-width: 640px) { flex-direction: column;}
+}
+
+  .f-color {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+
+    @media (max-width: 640px) { flex-basis: 100%;}
+  }
+
+    .f-color__block {
+      border: 1px solid #f1f1f1;
+      overflow: hidden;
+      position: relative;
+
+      &:before {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+      .f-color__block__inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        text-align: center;
+      }
+
+    .f-color__text {}
