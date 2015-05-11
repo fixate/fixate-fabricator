@@ -1,5 +1,14 @@
 'use strict';
 
+require('./utils/all');
+
+require('./angular-module');
+require('./animations');
+require('./colors');
+require('./typographic-modifiers');
+require('./layout');
+require('./progress');
+
 require('./prism');
 
 /**
