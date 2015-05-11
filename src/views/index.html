@@ -24,8 +24,8 @@ fabricator: true
 
   <div class="f-color-container">
     {{#each this}}
-      <div class="f-color">
-        <div class="f-color__block bgc_-{{@key}}{{this}}" >
+      <div class="f-color" data-color-block=".f-color__block" data-color-output=".f-color__text">
+        <div class="f-color__block bgc_-{{@key}}{{this}}">
           <div class="f-color__block__inner"></div>
         </div>
         <div class="f-color__text">
