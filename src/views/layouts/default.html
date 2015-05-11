@@ -12,16 +12,6 @@
   <link rel="stylesheet" href="{{baseurl}}/assets/toolkit/styles/toolkit.css">
   <!-- /toolkit styles -->
 
-  {{#each styles}}
-    <!-- view-specific styles -->
-    <link rel="stylesheet" href="{{this}}">
-  {{/each}}
-
-  {{#each scripts-head}}
-    <!-- view-specific scripts -->
-    <script src={{this}}></script>
-  {{/each}}
-
 </head>
 <body>
 
@@ -46,11 +36,6 @@
   <!-- toolkit scripts -->
   <script src="{{baseurl}}/assets/toolkit/scripts/toolkit.js"></script>
   <!-- /toolkit scripts -->
-
-  {{#each scripts-footer}}
-    <!-- view-specific scripts -->
-    <script src="{{this}}"></script>
-  {{/each}}
 
 </body>
 </html>
