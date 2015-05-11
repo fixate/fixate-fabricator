@@ -1,0 +1,19 @@
+// grids
+.g {
+  & div {
+    background-color: whitesmoke;
+    padding: 1em;
+    text-align: center;
+  }
+}
+
+
+
+
+
+// islands
+[class*="island"] {
+	background-color: hotpink;
+
+  & * { background-color: #FFF;}
+}
