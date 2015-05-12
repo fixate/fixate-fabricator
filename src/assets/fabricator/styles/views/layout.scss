@@ -1,4 +1,4 @@
-$layout-grey: darken(whitesmoke, 7.5);
+$layout-grey: whitesmoke;
 
 // grids
 .g {
@@ -25,10 +25,10 @@ $layout-grey: darken(whitesmoke, 7.5);
 
 // wraps
 [class*="wrap"] {
-  background-color: $layout-grey;
+  background-color: darken($layout-grey, 10%);
 
   & > div {
-    background-color: whitesmoke;
+    background-color: $layout-grey;
     padding: 1em;
   }
 }
