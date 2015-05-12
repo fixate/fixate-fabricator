@@ -1,12 +1,6 @@
 grids:
   - gw
-  - gw_-middle
-  - gw_-bottom
 islands:
-  - island_-large
   - island
-  - island_-small
 wraps:
-  - wrap_-large
   - wrap
-  - wrap_-small
