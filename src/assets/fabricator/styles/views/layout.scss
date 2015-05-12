@@ -1,7 +1,9 @@
+$layout-grey: darken(whitesmoke, 7.5);
+
 // grids
 .g {
   & div {
-    background-color: whitesmoke;
+    background-color: $layout-grey;
     padding: 1em;
     text-align: center;
   }
@@ -13,7 +15,21 @@
 
 // islands
 [class*="island"] {
-	background-color: hotpink;
+	background-color: $layout-grey;
 
   & * { background-color: #FFF;}
 }
+
+
+
+
+// wraps
+[class*="wrap"] {
+  background-color: $layout-grey;
+
+  & > div {
+    background-color: whitesmoke;
+    padding: 1em;
+  }
+}
+
