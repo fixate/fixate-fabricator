@@ -3,3 +3,7 @@ dist/
 
 # ignore node modules
 node_modules/
+
+# ignore symlinked folder
+src/assets/toolkit/assets/
+
