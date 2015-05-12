@@ -1,4 +1,9 @@
 colors:
+  base:
+    - -dk
+    - ''
+    - -lt
+    - -ltr
   primary:
     - -dkr
     - -dk
@@ -11,3 +16,4 @@ colors:
     - ''
     - -lt
     - -ltr
+
