@@ -1,5 +1,5 @@
 modifiers:
-  - ''
+  - no-anim
   - anim-fade-in_-up
 ng-modifiers:
   - ngAnim-fade-in_-down
