@@ -22,10 +22,10 @@ notes: |
 
   {{#each this}}
     <div class="btn-container">
-      <button class="btn {{@key}} {{this}}">button.{{@key}}.{{this}}</button>
-      <a class="btn {{@key}} {{this}}" href="javascript:void(0)">a.{{@key}}.{{this}}</a>
-      <label class="btn {{@key}} {{this}}">label.{{@key}}.{{this}}</label>
-      <input type="submit" class="btn {{@key}} {{this}}" value="input.{{@key}}.{{this}}" />
+      <button class="btn {{@../key}} {{this}}">button.{{@../key}}.{{this}}</button>
+      <a class="btn {{@../key}} {{this}}" href="javascript:void(0)">a.{{@../key}}.{{this}}</a>
+      <label class="btn {{@../key}} {{this}}">label.{{@../key}}.{{this}}</label>
+      <input type="submit" class="btn {{@../key}} {{this}}" value="input.{{@../key}}.{{this}}" />
     </div>
     <br>
   {{/each}}
