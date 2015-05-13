@@ -7,6 +7,7 @@ require('./animations');
 require('./colors');
 require('./typographic-modifiers');
 require('./layout');
+require('./menus');
 require('./progress');
 
 require('./prism');
