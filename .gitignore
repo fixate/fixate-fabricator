@@ -5,5 +5,5 @@ dist/
 node_modules/
 
 # ignore symlinked folder
-src/assets/toolkit/assets/
+src/assets/toolkit/assets
 
