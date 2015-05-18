@@ -2,7 +2,7 @@ $layout-grey: darken(whitesmoke, 5%);
 
 // grids
 .g {
-  & div {
+  & .f-styled {
     background-color: $layout-grey;
     padding: 1em;
     text-align: center;
@@ -14,7 +14,7 @@ $layout-grey: darken(whitesmoke, 5%);
 
 
 // islands
-[class*="island"] {
+.f-styled[class*="island"] {
 	background-color: $layout-grey;
 
   & * { background-color: #FFF;}
@@ -24,7 +24,7 @@ $layout-grey: darken(whitesmoke, 5%);
 
 
 // wraps
-[class*="wrap"] {
+.f-styled[class*="wrap"] {
   background-color: darken($layout-grey, 10%);
 
   & > div {
@@ -32,4 +32,3 @@ $layout-grey: darken(whitesmoke, 5%);
     padding: 1em;
   }
 }
-
