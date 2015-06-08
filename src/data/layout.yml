@@ -2,5 +2,9 @@ grids:
   - gw
 islands:
   - island
+margins:
+  - push
+padding:
+  - soft
 wraps:
   - wrap

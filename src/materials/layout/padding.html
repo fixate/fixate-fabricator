@@ -1,0 +1,13 @@
+---
+notes: |
+  Import production styles into fabricator.scss, and extend padding modifiers in
+  fabricator/../_layout.scss
+---
+{{#each layout.padding}}
+<div class="{{this}}">
+  <div class="f-styled">.{{this}}</div>
+</div>
+<br>
+
+{{/each}}
+

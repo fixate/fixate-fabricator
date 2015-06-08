@@ -1,0 +1,15 @@
+---
+notes: |
+  Import production styles into fabricator.scss, and extend margin modifiers in
+  fabricator/../_layout.scss
+---
+{{#each layout.margins}}
+<div class="f-margin-container">
+  <div class="{{this}}">
+    <div class="f-styled">.{{this}}</div>
+  </div>
+</div>
+<br>
+
+{{/each}}
+
