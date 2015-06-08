@@ -13,3 +13,13 @@
 @import 'partials/menu';
 
 @import 'views/layout';
+
+/**
+ * import your own stylesheet
+ *
+ * convenient for creating classes in fabricator from placeholders that you may
+ * not want to have classes for in production
+ *
+ * e.g. demoing backgrounds, padding, and margin modifiers
+ */
+// @import '../../toolkit/assets/css/scss/style';
