@@ -7,8 +7,9 @@ headers:
     - 5
     - 6
 lists:
-  - ul
-  - ol
+  tags:
+    - ul
+    - ol
 paragraphs:
   - style: normal
     weight: normal
