@@ -2,7 +2,7 @@
 
 // modules
 var assemble = require('fabricator-assemble');
-var browserSync = require('browser-sync');
+var browserSync = require('browser-sync').create();
 var csso = require('gulp-csso');
 var del = require('del');
 var gulp = require('gulp');
@@ -58,7 +58,7 @@ gulp.task('styles:fabricator', function () {
     .pipe(gulpif(!config.dev, csso()))
     .pipe(rename('f.css'))
     .pipe(gulp.dest(config.dest + '/assets/fabricator/styles'))
-    .pipe(gulpif(config.dev, reload({stream:true})));
+    .pipe(gulpif(config.dev, reload({match: '**/*.css'})));
 });
 
 gulp.task('styles:toolkit', function () {
@@ -69,7 +69,7 @@ gulp.task('styles:toolkit', function () {
     .pipe(prefix('last 1 version'))
     .pipe(gulpif(!config.dev, csso()))
     .pipe(gulp.dest(config.dest + '/assets/css'))
-    .pipe(gulpif(config.dev, reload({stream:true})));
+    .pipe(gulpif(config.dev, reload({match: '**/*.css'})));
 });
 
 gulp.task('styles', ['styles:fabricator', 'styles:toolkit']);
@@ -121,12 +121,13 @@ gulp.task('assemble', function (done) {
 // server
 gulp.task('serve', function () {
 
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: config.dest
     },
     notify: false,
-    logPrefix: 'FABRICATOR'
+    logPrefix: 'FABRICATOR',
+    injectChanges: true
   });
 
   /**
