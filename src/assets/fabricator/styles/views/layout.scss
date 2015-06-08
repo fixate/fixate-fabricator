@@ -1,4 +1,6 @@
 $layout-grey: darken(whitesmoke, 5%);
+$layout-padding: #c4dcb7; // chrome padding green
+$layout-margin: #f7cb9d; // chrome margin orange
 
 // grids
 .g {
@@ -23,12 +25,45 @@ $layout-grey: darken(whitesmoke, 5%);
 
 
 
+// padding
+[class*="soft"] {
+  background-color: $layout-padding;
+  text-align: center;
+
+  & > .f-styled {
+    background-color: $layout-grey;
+  }
+}
+
+.soft          { @extend %soft;}
+
+
+
+
+
+// margin
+.f-margin-container {
+  background-color: $layout-margin;
+  text-align: center;
+  @include clearfix();
+
+  & > [class*="push"] {
+    background-color: $layout-grey;
+  }
+}
+
+.push          { @extend %push;}
+
+
+
+
 // wraps
 .f-styled[class*="wrap"] {
-  background-color: darken($layout-grey, 10%);
+  background-color: $layout-padding;
 
   & > div {
     background-color: $layout-grey;
     padding: 1em;
   }
 }
+
