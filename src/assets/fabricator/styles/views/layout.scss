@@ -16,7 +16,7 @@ $layout-margin: #f7cb9d; // chrome margin orange
 
 
 // islands
-.f-styled[class*="island"] {
+.f-styled-island {
 	background-color: $layout-grey;
 
   & * { background-color: #FFF;}
@@ -26,7 +26,7 @@ $layout-margin: #f7cb9d; // chrome margin orange
 
 
 // padding
-[class*="soft"] {
+.f-styled-padding {
   background-color: $layout-padding;
   text-align: center;
 
