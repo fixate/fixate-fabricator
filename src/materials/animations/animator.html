@@ -2,15 +2,15 @@
 	<h3 anim-element="animElement" ng-class="animClass">animate me</h3>
 
   <p>
-		<select id="" name="" ng-model="animClass">
+		<select id="" name="" ng-model="animClass" ng-change="$broadcast('animElement:animate')">
       {{#each animations.modifiers}}
         <option value="{{this}}">.{{this}}</option>
       {{/each}}
 		</select>
-    <button class="btn ng-cloak" ng-click="animElement.replay()">replay</button>
+
+    <button class="btn ng-cloak" ng-click="$broadcast('animElement:animate')">replay</button>
   </p>
 </div>
-
 
 {{#if angular}}
 <br>

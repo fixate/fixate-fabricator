@@ -8,25 +8,34 @@ angular.module('f')
       },
       controller: [
         '$scope', function($scope) {
-          this.replay = function() {
-            return $scope.replay = !$scope.replay;
+          this.animate = function() {
+            $scope.$broadcast('animElement:animate')
           };
         }
       ],
       link: function(scope, element, attrs, ctrl) {
+        var animEnd = [
+          'webkitAnimationEnd',
+          'mozAnimationEnd',
+          'MSAnimationEnd',
+          'oanimationend',
+          'animationend'
+        ].join(' ');
+
+        var animateOnce = function(e) {
+          element.addClass(e.targetScope.animClass)
+            .one(animEnd, function() {
+              element.removeClass(e.targetScope.animClass);
+            }
+          );
+        }
+
         if (attrs.animElement != null) {
           scope.$parent[attrs.animElement] = ctrl;
         }
-        scope.$watch('replay', function() {
-          return element.addClass(scope.animClass).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animatinend', (function(_this) {
-            return function() {
-              return element.removeClass(scope.animClass);
-            };
-          })(this));
-        });
-        return scope.$watch('animClass', function(newVal, oldVal) {
-          return ctrl.replay();
-        });
+
+        scope.$on('animElement:animate', animateOnce);
       }
     };
   });
+
