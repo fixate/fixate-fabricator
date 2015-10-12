@@ -1,3 +1,11 @@
+---
+notes: |
+  .gw is the top-level grid-wrap. This is a required class for defining a grid.<br>
+  .g.g-n/m is the immediate child of any .gw or .gw modifier<br>
+  These components are the rare exception of components that shouldn't be
+  composed with any other components. Avoid placing any non-grid components onto
+  these components.
+---
 {{#each layout.grids}}
 <h3>.{{this}}</h3>
 
@@ -15,3 +23,5 @@
   </div>
 </div>
 {{/each}}
+
+

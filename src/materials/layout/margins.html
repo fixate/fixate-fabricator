@@ -1,7 +1,13 @@
 ---
 notes: |
-  Import production styles into fabricator.scss, and extend margin modifiers in
-  fabricator/../_layout.scss
+  Components requiring margins can extend %push placeholders found in
+  <code>scss/custom/components/_layout.scss</code>
+  %push modifiers that do not yet have an associated class (and you don't want that
+  class in production styles) can have that class added to
+  <code>styleguide/src/assets/fabricator/styles/views/_layout.scss</code>
+  files:<br>
+  scss/custom/components/_layout.scss<br>
+  scss/custom/mixins/layout/_margin_padding.scss
 ---
 {{#each layout.margins}}
 <div class="f-margin-container">
