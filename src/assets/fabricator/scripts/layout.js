@@ -1,5 +1,5 @@
-var wrapElems;
+var elems;
 
-if (wrapElems = document.querySelectorAll('[data-computed-width]')) {
-  new ComputedStyle(wrapElems);
+if (elems = document.querySelectorAll('[data-computed-value]')) {
+  new ComputedStyle(elems);
 }
