@@ -16,10 +16,13 @@ var ComputedStyle = (function() {
   }
 
   ComputedStyle.prototype._getComputedStyle = function(el) {
-    return window.getComputedStyle(el)[el.getAttribute(['data-style-props'])];
+    var prop = el.getAttribute(['data-computed-value']);
+
+    return window.getComputedStyle(el)[prop];
   }
 
   return ComputedStyle;
 })();
 
 window.ComputedStyle = ComputedStyle;
+
