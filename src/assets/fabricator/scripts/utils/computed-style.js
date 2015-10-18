@@ -4,7 +4,9 @@ var ComputedStyle = (function() {
   var ComputedStyle = function(elems) {
     this.elems = elems;
 
-    [].slice.call(this.elems).forEach(this._outPutSize.bind(this));
+    [].slice.call(elems).map(function(elem) {
+      this._outPutSize(elem);
+    }.bind(this));
   }
 
   ComputedStyle.prototype._outPutSize = function(el) {
