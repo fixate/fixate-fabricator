@@ -24,7 +24,7 @@ var ColorBlocks = (function() {
   }
 
   ColorBlocks.prototype._rgbToHex = function(rgb) {
-    rgb = rgb.match(/^rgba?((\d+),\s(\d+),\s(\d+)(,\s(\d+\.?\d+))?)$/);
+    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*(\d*\.?\d+))?\)$/);
 
     return "#" + this._getHex(rgb[1]) + this._getHex(rgb[2]) + this._getHex(rgb[3]);
   }
