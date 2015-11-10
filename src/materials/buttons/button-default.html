@@ -2,15 +2,8 @@
 notes: |
   These are notes associated with this `button` component.
 ---
-<div class="btn-container">
-  <button class="btn">button.btn</button>
-  <a class="btn" href="javascript:void(0)">a.btn</a>
-  <label class="btn">label.btn</label>
-  <input type="submit" class="btn" value="input.btn" />
-</div>
-
 {{#each buttons.modifiers}}
-<h3>.{{@key}}</h3>
+<h2>.{{@key}}</h2>
 
 <div class="btn-container">
   <button class="btn {{@key}}">button.{{@key}}</button>
@@ -21,6 +14,8 @@ notes: |
 <br>
 
   {{#each this}}
+  <h4>.{{@../key}}.{{this}}</h4>
+
     <div class="btn-container">
       <button class="btn {{@../key}} {{this}}">button.{{@../key}}.{{this}}</button>
       <a class="btn {{@../key}} {{this}}" href="javascript:void(0)">a.{{@../key}}.{{this}}</a>
@@ -30,3 +25,4 @@ notes: |
     <br>
   {{/each}}
 {{/each}}
+
