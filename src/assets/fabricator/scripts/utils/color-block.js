@@ -24,9 +24,10 @@ var ColorBlocks = (function() {
   }
 
   ColorBlocks.prototype._rgbToHex = function(rgb) {
-    rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(,\s*(\d*\.?\d+))?\)$/);
+    var rgb = rgb.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+),?(\s*(\d*\.?\d+))?\)$/);
+    var alpha = rgb[4] ? ' opacity: ' + (1 - Number(rgb[4]).toFixed(2)) : '';
 
-    return "#" + this._getHex(rgb[1]) + this._getHex(rgb[2]) + this._getHex(rgb[3]);
+    return "#" + this._getHex(rgb[1]) + this._getHex(rgb[2]) + this._getHex(rgb[3]) + alpha;
   }
 
   ColorBlocks.prototype._getHex = function(x) {
@@ -37,3 +38,5 @@ var ColorBlocks = (function() {
 })();
 
 window.ColorBlocks = ColorBlocks;
+
+
