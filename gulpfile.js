@@ -1,20 +1,20 @@
 'use strict';
 
 // modules
-var assemble = require('fabricator-assemble');
+var assemble    = require('fabricator-assemble');
 var browserSync = require('browser-sync').create();
-var csso = require('gulp-csso');
-var del = require('del');
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var gulpif = require('gulp-if');
-var imagemin = require('gulp-imagemin');
-var prefix = require('gulp-autoprefixer');
-var rename = require('gulp-rename');
-var reload = browserSync.reload;
+var csso        = require('gulp-csso');
+var del         = require('del');
+var gulp        = require('gulp');
+var gutil       = require('gulp-util');
+var gulpif      = require('gulp-if');
+var imagemin    = require('gulp-imagemin');
+var prefix      = require('gulp-autoprefixer');
+var rename      = require('gulp-rename');
+var reload      = browserSync.reload;
 var runSequence = require('run-sequence');
-var sass = require('gulp-sass');
-var webpack = require('webpack');
+var sass        = require('gulp-sass');
+var webpack     = require('webpack');
 
 
 // configuration
