@@ -1,5 +1,5 @@
 modifiers:
-  btn_-primary:
+  btn--primary:
     - is-active
     - is-selected
-    - btn_-full
+    - btn--full

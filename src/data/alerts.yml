@@ -1,5 +1,5 @@
 modifiers:
   - alert
-  - alert_-success
-  - alert_-info
-  - alert_-error
+  - alert--success
+  - alert--info
+  - alert--error
