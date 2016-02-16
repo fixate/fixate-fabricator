@@ -51,9 +51,7 @@ gulp.task('clean', function (cb) {
 // styles
 gulp.task('styles:fabricator', function () {
   return gulp.src(config.src.styles.fabricator)
-    .pipe(sass({
-      errLogToConsole: true
-    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(prefix('last 1 version'))
     .pipe(gulpif(!config.dev, csso()))
     .pipe(rename('f.css'))
@@ -63,9 +61,7 @@ gulp.task('styles:fabricator', function () {
 
 gulp.task('styles:toolkit', function () {
   return gulp.src(config.src.styles.toolkit)
-    .pipe(sass({
-      errLogToConsole: true
-    }))
+    .pipe(sass().on('error', sass.logError))
     .pipe(prefix('last 1 version'))
     .pipe(gulpif(!config.dev, csso()))
     .pipe(gulp.dest(config.dest + '/assets/css'))
