@@ -12,8 +12,6 @@
 @import 'partials/layout';
 @import 'partials/menu';
 
-@import 'views/layout';
-
 /**
  * import your own stylesheet
  *
@@ -23,3 +21,5 @@
  * e.g. demoing backgrounds, padding, and margin modifiers
  */
 // @import '../../toolkit/assets/css/scss/style';
+
+@import 'views/layout';
