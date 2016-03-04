@@ -17,7 +17,7 @@
 
 <h3>ngShow Animations</h3>
 <div class="gw" ng-init="ngShow.elem = true">
-	<div class="g one-half">
+	<div class="g 1-of-2">
 		<p class="alert--info" ng-class="ngShow.animClass" ng-show="ngShow.elem && !ngShow.useInline">
 			Consectetur laudantium iusto in voluptatem quae dolores. A omnis soluta iste
 			quasi quia perspiciatis veritatis, quisquam, ipsa voluptatibus eum dolorem
@@ -27,7 +27,7 @@
 		<span ng-class="ngShow.animClass" ng-show="ngShow.elem && ngShow.useInline">inline</span>
 	</div>
 
-	<div class="g one-half">
+	<div class="g 1-of-2">
 		<select id="" name="" ng-model="ngShow.animClass">
       {{#each animations.ng-modifiers}}
         <option value="{{this}}">.{{this}}</option>
@@ -45,7 +45,7 @@
 
 <h3>ngIf Animations</h3>
 <div class="gw" ng-init="ngIf.elem = true">
-	<div class="g one-half">
+	<div class="g 1-of-2">
 		<p class="alert--info" ng-class="ngIf.animClass" ng-if="ngIf.elem && !ngIf.useInline">
 			Consectetur laudantium iusto in voluptatem quae dolores. A omnis soluta iste
 			quasi quia perspiciatis veritatis, quisquam, ipsa voluptatibus eum dolorem
@@ -55,7 +55,7 @@
 		<span ng-class="ngIf.animClass" ng-if="ngIf.elem && ngIf.useInline">inline element</span>
 	</div>
 
-	<div class="g one-half">
+	<div class="g 1-of-2">
 		<select id="" name="" ng-model="ngIf.animClass">
       {{#each animations.ng-modifiers}}
         <option value="{{this}}">.{{this}}</option>
