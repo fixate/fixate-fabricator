@@ -152,7 +152,7 @@ gulp.task('serve', function () {
   gulp.watch('src/assets/fabricator/styles/**/*.scss', ['styles:fabricator:watch']);
 
   gulp.task('styles:toolkit:watch', ['styles:toolkit'], reload);
-  gulp.watch('src/assets/toolkit/assets/css/scss/**/*.scss', ['styles:toolkit:watch']);
+  gulp.watch('src/assets/toolkit/**/*.scss', ['styles:toolkit:watch']);
 
   gulp.task('scripts:watch', ['scripts'], reload);
   gulp.watch('src/assets/{fabricator,toolkit}/scripts/**/*.js', ['scripts:watch']).on('change', webpackCache);
