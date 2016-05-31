@@ -7,9 +7,9 @@
   "scripts": {
     "gulp": "gulp",
     "prestart": "npm install",
-    "build": "npm install && gulp",
     "start": "gulp --dev",
-    "test": "npm run build"
+    "build": "npm run build",
+    "update": "./node_modules/.bin/updtr"
   },
   "keywords": [
     "toolkit",
@@ -30,22 +30,23 @@
     "npm": ">=2.0.0"
   },
   "devDependencies": {
-    "babel-core": "6.2.1",
-    "babel-loader": "6.2.0",
-    "browser-sync": "^2.7.6",
-    "del": "^2.1.0",
-    "fabricator-assemble": "^1.0.3",
-    "gulp": "^3.8.11",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "browser-sync": "^2.12.10",
+    "del": "^2.2.0",
+    "fabricator-assemble": "^1.1.11",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-csso": "^1.0.0",
-    "gulp-if": "^2.0.0",
-    "gulp-imagemin": "^2.2.1",
+    "gulp-csso": "^2.0.0",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^2.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
     "gulp-util": "^3.0.4",
     "imports-loader": "^0.6.3",
-    "run-sequence": "^1.0.2",
-    "script-loader": "^0.6.1",
-    "webpack": "^1.8.3"
+    "run-sequence": "^1.2.1",
+    "script-loader": "^0.7.0",
+    "updtr": "^0.1.15",
+    "webpack": "^1.13.1"
   }
 }
