@@ -5,6 +5,7 @@ var assemble    = require('fabricator-assemble');
 var browserSync = require('browser-sync').create();
 var csso        = require('gulp-csso');
 var del         = require('del');
+var fs          = require('fs');
 var gulp        = require('gulp');
 var gutil       = require('gulp-util');
 var gulpif      = require('gulp-if');
@@ -152,7 +153,7 @@ gulp.task('serve', function () {
   gulp.watch('src/assets/fabricator/styles/**/*.scss', ['styles:fabricator:watch']);
 
   gulp.task('styles:toolkit:watch', ['styles:toolkit'], reload);
-  gulp.watch('src/assets/toolkit/**/*.scss', ['styles:toolkit:watch']);
+  gulp.watch(fs.realpathSync('src/assets/toolkit/') + '**/*.scss', ['styles:toolkit:watch']);
 
   gulp.task('scripts:watch', ['scripts'], reload);
   gulp.watch('src/assets/{fabricator,toolkit}/scripts/**/*.js', ['scripts:watch']).on('change', webpackCache);
