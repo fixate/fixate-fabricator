@@ -35,7 +35,7 @@ $layout-margin: #f7cb9d; // chrome margin orange
   }
 }
 
-.soft          { @extend %soft;}
+.soft          { @include soft;}
 
 
 
@@ -52,7 +52,7 @@ $layout-margin: #f7cb9d; // chrome margin orange
   }
 }
 
-.push          { @extend %push;}
+.push          { @include push;}
 
 
 
