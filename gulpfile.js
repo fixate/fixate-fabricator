@@ -56,7 +56,7 @@ gulp.task('styles:fabricator', function () {
     .pipe(prefix('last 1 version'))
     .pipe(gulpif(!config.dev, csso()))
     .pipe(rename('f.css'))
-    .pipe(gulp.dest(config.dest + '/assets/fabricator/styles'))
+    .pipe(gulp.dest(config.dest + '/assets/styles'))
     .pipe(gulpif(config.dev, browserSync.stream()));
 });
 
