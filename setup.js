@@ -7,5 +7,5 @@ if (!test('-L', 'src/assets/toolkit/assets')) {
   ln('-s', '../../../../src/assets', 'assets');
   echo('assets symlinked');
 } else {
-  echo('styleguide symlinked to src assets');
+  echo('styleguide symlinked to src assets. Check that src/assets/toolkit references the correct directory');
 }
