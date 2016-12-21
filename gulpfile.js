@@ -17,6 +17,11 @@ var runSequence = require('run-sequence');
 var sass        = require('gulp-sass');
 var webpack     = require('webpack');
 
+const regexRename = require('gulp-regex-rename');
+const replace     = require('gulp-replace');
+const pngquant    = require('imagemin-pngquant');
+const svgstore    = require('gulp-svgstore');
+
 
 // configuration
 var config = {
@@ -31,6 +36,7 @@ var config = {
       toolkit: 'src/assets/toolkit/assets/css/scss/style.scss'
     },
     images: 'src/assets/toolkit/assets/img/**/*',
+    icons: 'src/assets/toolkit/assets/img/raw/svg/inline-icons/**/*',
     fonts: 'src/assets/toolkit/assets/fnt/**/*',
     views: 'src/toolkit/views/*.html',
   },
@@ -94,6 +100,19 @@ gulp.task('images', ['favicon'], function () {
   return gulp.src(config.src.images)
     .pipe(imagemin())
     .pipe(gulp.dest(config.dest + '/assets/img'));
+});
+
+gulp.task('icons', function () {
+  return gulp.src(config.src.icons)
+    .pipe(rename({ prefix: 'icon-' }))
+    .pipe(imagemin({
+      svgoPlugins: [
+        { removeViewBox: false },
+      ],
+    }))
+    .pipe(svgstore())
+    .pipe(regexRename(/\.svg/, '.svg.html'))
+    .pipe(gulp.dest('src/views/layouts/includes'))
 });
 
 // fonts
@@ -161,6 +180,9 @@ gulp.task('serve', function () {
   gulp.task('images:watch', ['images'], reload);
   gulp.watch(config.src.images, ['images:watch']);
 
+  gulp.task('icons:watch', ['icons'], reload);
+  gulp.watch(config.src.icons, ['icons:watch']);
+
   gulp.task('fonts:watch', ['fonts'], reload);
   gulp.watch(config.src.fonts, ['fonts:watch']);
 
@@ -174,6 +196,7 @@ gulp.task('default', ['clean'], function () {
   var tasks = [
     'styles',
     'scripts',
+    'icons',
     'images',
     'fonts',
     'assemble'
@@ -187,4 +210,3 @@ gulp.task('default', ['clean'], function () {
   });
 
 });
-
