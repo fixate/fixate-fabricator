@@ -6,3 +6,6 @@ node_modules/
 
 # ignore symlinked folder
 src/assets/toolkit/assets
+
+# ignore generated icon files
+src/views/layouts/includes/*.svg.html
