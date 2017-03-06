@@ -1,5 +1,11 @@
 {{#each icons.app}}
-  <i class="icon-{{this}}" style="font-size: 2em;"></i> - .icon-{{this}}
+  <i class="icon">
+    <i class="icon__inner">
+      <svg>
+        <use xlink:href="#icon-{{this}}" />
+      </svg>
+    </i>
+  </i> - #icon-{{this}}
   <br>
 
 {{/each}}
