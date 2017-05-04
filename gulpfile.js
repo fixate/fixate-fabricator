@@ -1,21 +1,22 @@
 'use strict';
 
 // modules
-var assemble    = require('fabricator-assemble');
-var browserSync = require('browser-sync').create();
-var csso        = require('gulp-csso');
-var del         = require('del');
-var fs          = require('fs');
-var gulp        = require('gulp');
-var gutil       = require('gulp-util');
-var gulpif      = require('gulp-if');
-var imagemin    = require('gulp-imagemin');
-var prefix      = require('gulp-autoprefixer');
-var rename      = require('gulp-rename');
-var reload      = browserSync.reload;
-var runSequence = require('run-sequence');
-var sass        = require('gulp-sass');
-var webpack     = require('webpack');
+const assemble    = require('fabricator-assemble');
+const browserSync = require('browser-sync').create();
+const csso        = require('gulp-csso');
+const del         = require('del');
+const fs          = require('fs');
+const gulp        = require('gulp');
+const gutil       = require('gulp-util');
+const gulpif      = require('gulp-if');
+const imagemin    = require('gulp-imagemin');
+const prefix      = require('gulp-autoprefixer');
+const rename      = require('gulp-rename');
+const reload      = browserSync.reload;
+const runSequence = require('run-sequence');
+const sass        = require('gulp-sass');
+const webpack     = require('webpack');
+
 const hbRepeat    = require('handlebars-helper-repeat');
 
 const regexRename = require('gulp-regex-rename');
@@ -23,22 +24,29 @@ const replace     = require('gulp-replace');
 const pngquant    = require('imagemin-pngquant');
 const svgstore    = require('gulp-svgstore');
 
+const rp = (path) => fs.realpathSync(path);
+
+const assetsPath = `${__dirname}/src/assets`;
 
 // configuration
-var config = {
+const config = {
   dev: gutil.env.dev,
   src: {
     scripts: {
-      fabricator: './src/assets/fabricator/scripts/fabricator.js',
-      toolkit: './src/assets/toolkit/scripts/toolkit.js'
+      fabricator: `${assetsPath}/fabricator/scripts/fabricator.js`,
+      toolkit: `/${assetsPath}/toolkit/scripts/toolkit.js`
     },
     styles: {
-      fabricator: 'src/assets/fabricator/styles/fabricator.scss',
-      toolkit: 'src/assets/toolkit/assets/css/scss/style.scss'
+      fabricator: [
+        `${assetsPath}/fabricator/styles/fabricator.scss`,
+      ],
+      toolkit: [
+        `${assetsPath}/toolkit/scss/*.**scss`,
+      ],
     },
-    images: 'src/assets/toolkit/assets/img/**/*',
-    icons: 'src/assets/toolkit/assets/img/raw/svg/inline-icons/**/*',
-    fonts: 'src/assets/toolkit/assets/fnt/**/*',
+    images: `${assetsPath}/toolkit/img/raw/**/*`,
+    icons: `${assetsPath}/toolkit/img/raw/svg/inline-icons/**/*`,
+    fonts: `${assetsPath}/toolkit/fnt/**/*`,
     views: 'src/toolkit/views/*.html',
   },
   dest: 'dist'
@@ -46,9 +54,13 @@ var config = {
 
 
 // webpack
-var webpackConfig = require('./webpack.config')(config);
-var webpackCompiler = webpack(webpackConfig);
+const webpackConfig = require('./webpack.config')(config);
+const webpackCompiler = webpack(webpackConfig);
 
+const watchStyles = () => {
+  gulp.watch(`${assetsPath}/fabricator/styles/**/*.scss`, ['styles:fabricator:watch']);
+  gulp.watch(fs.realpathSync(`${assetsPath}/toolkit/scss`) + '/**/*.scss', ['styles:toolkit:watch']);
+};
 
 // clean
 gulp.task('clean', function (cb) {
@@ -59,7 +71,7 @@ gulp.task('clean', function (cb) {
 // styles
 gulp.task('styles:fabricator', function () {
   return gulp.src(config.src.styles.fabricator)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ includePaths: ['node_modules'] }).on('error', sass.logError))
     .pipe(prefix('last 1 version'))
     .pipe(gulpif(!config.dev, csso()))
     .pipe(rename('f.css'))
@@ -138,6 +150,9 @@ gulp.task('assemble', function (done) {
   done();
 });
 
+gulp.task('watch:styles', watchStyles);
+gulp.task('styles:fabricator:watch', ['styles:fabricator'], reload);
+gulp.task('styles:toolkit:watch', ['styles:toolkit', 'styles:fabricator'], reload);
 
 // server
 gulp.task('serve', function () {
@@ -146,9 +161,9 @@ gulp.task('serve', function () {
     server: {
       baseDir: config.dest
     },
+    injectChanges: true,
     notify: false,
     logPrefix: 'FABRICATOR',
-    injectChanges: true
   });
 
   /**
@@ -156,9 +171,9 @@ gulp.task('serve', function () {
    * manually remove the changed file path from the cache
    */
   function webpackCache(e) {
-    var keys = Object.keys(webpackConfig.cache);
-    var key, matchedKey;
-    for (var keyIndex = 0; keyIndex < keys.length; keyIndex++) {
+    const keys = Object.keys(webpackConfig.cache);
+    let key, matchedKey;
+    for (let keyIndex = 0; keyIndex < keys.length; keyIndex++) {
       key = keys[keyIndex];
       if (key.indexOf(e.path) !== -1) {
         matchedKey = key;
@@ -170,17 +185,15 @@ gulp.task('serve', function () {
     }
   }
 
+  watchStyles();
+
   gulp.task('assemble:watch', ['assemble'], reload);
   gulp.watch('src/**/*.{html,md,json,yml}', ['assemble:watch']);
 
-  gulp.task('styles:fabricator:watch', ['styles:fabricator'], reload);
-  gulp.watch('src/assets/fabricator/styles/**/*.scss', ['styles:fabricator:watch']);
-
-  gulp.task('styles:toolkit:watch', ['styles:toolkit', 'styles:fabricator'], reload);
-  gulp.watch(fs.realpathSync('src/assets/toolkit') + '/**/*.scss', ['styles:toolkit:watch']);
-
   gulp.task('scripts:watch', ['scripts'], reload);
-  gulp.watch('src/assets/{fabricator,toolkit}/scripts/**/*.js', ['scripts:watch']).on('change', webpackCache);
+  gulp.watch([
+    `${assetsPath}/{fabricator,toolkit}/scripts/**/*.js`,
+  ], ['scripts:watch']).on('change', webpackCache);
 
   gulp.task('images:watch', ['images'], reload);
   gulp.watch(config.src.images, ['images:watch']);
@@ -190,7 +203,6 @@ gulp.task('serve', function () {
 
   gulp.task('fonts:watch', ['fonts'], reload);
   gulp.watch(config.src.fonts, ['fonts:watch']);
-
 });
 
 
@@ -198,7 +210,7 @@ gulp.task('serve', function () {
 gulp.task('default', ['clean'], function () {
 
   // define build tasks
-  var tasks = [
+  const tasks = [
     'styles',
     'scripts',
     'icons',
