@@ -16,6 +16,7 @@ var reload      = browserSync.reload;
 var runSequence = require('run-sequence');
 var sass        = require('gulp-sass');
 var webpack     = require('webpack');
+const hbRepeat    = require('handlebars-helper-repeat');
 
 const regexRename = require('gulp-regex-rename');
 const replace     = require('gulp-replace');
@@ -129,7 +130,11 @@ gulp.task('favicon', function () {
 
 // assemble
 gulp.task('assemble', function (done) {
-  assemble();
+  assemble({
+    helpers: {
+      repeat: hbRepeat,
+    },
+  });
   done();
 });
 
